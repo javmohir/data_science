@@ -1,2 +1,2 @@
 # data_science
-data scienceda qilingan ishlarimni shu yerda jamlab borgan 
+data scienceda qilingan ishlarimni shu yerda jamlab borganman. 
