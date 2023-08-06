@@ -1,0 +1,894 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/javmohir/data_science/blob/main/massivlar_yaratish\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "BujG8fbPpbuD"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_list=list(range(100000))\n",
+        "my_array=np.array(range(100000))"
+      ],
+      "metadata": {
+        "id": "W9cp-b_QXjRM"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%time for _ in range(10):[x*2 for x in my_list]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MVyGtw34Yrtk",
+        "outputId": "04eca411-d496-43a8-b11d-edaecaa0faa8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "CPU times: user 58.1 ms, sys: 11.6 ms, total: 69.7 ms\n",
+            "Wall time: 70.1 ms\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%time for _ in range(10):my_array*2"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EKsZQrC5Z_Ck",
+        "outputId": "8695a3d0-c499-439f-bd10-9092faf3c6b6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "CPU times: user 1.92 ms, sys: 158 µs, total: 2.08 ms\n",
+            "Wall time: 6.97 ms\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data1=[3.5,5,6,8]\n",
+        "arr1=np.array(data1)"
+      ],
+      "metadata": {
+        "id": "-IM-OrpNamsD"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qYaAGjBebijk",
+        "outputId": "b763f210-3469-4a46-ca98-560349f72b75"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([3.5, 5. , 6. , 8. ])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3LrXQRAcbjuP",
+        "outputId": "8d51d555-a02a-4498-cf9e-66e6edb23b5b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[3.5, 5, 6, 8]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data2=[3,4.5,7,2]\n",
+        "arr2=np.array(data1)"
+      ],
+      "metadata": {
+        "id": "SU2mh7z-b4jp"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr2"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oV6UsfPZqBUx",
+        "outputId": "9141d8b0-db9f-471c-af93-88b69836c965"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([3.5, 5. , 6. , 8. ])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr2.ndim  # ndim massiv o'lchamini aniqlash"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dklLA94ZqElG",
+        "outputId": "4db6e3b8-5554-478d-c619-6f2b4fd16a4e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data3=[[1,2,3,4],[5,6,7,8]]\n",
+        "arr3=np.array(data3) # array3"
+      ],
+      "metadata": {
+        "id": "9eUxWAeZqXyL"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr3.ndim # ikki o'lchamli massiv"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NN1Mxi8vq4PL",
+        "outputId": "86339e0e-1a0e-4ac9-a88d-02f3e4ff8696"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "2"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# shape metodi massivning qator va ustunlar sonini ko'rsatsa,\n",
+        "#  size esa massivlardagi elementlar sonini nomoyon etadi"
+      ],
+      "metadata": {
+        "id": "mElK07Ueq7RC"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr3.shape"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KG4046HIrajD",
+        "outputId": "cc3e3d65-54b2-42e5-fc3b-154e1cb1cb6c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(2, 4)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr3.size"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "C0z2rHR6ri7z",
+        "outputId": "4bc61520-2961-425b-c882-f4d34fce82dd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# N-o'lchamli massivlar yaratishning boshqa usullari,\n",
+        "# zeros va ones funksiyalari yordamida massivlar yaratish"
+      ],
+      "metadata": {
+        "id": "k_LrIOaNroAb"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr4=np.zeros((2,4)) # barcha elemtlari 0 ga teng bo'lgan (2, 4) massiv\n",
+        "arr4"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "I5bi3uPQr0F_",
+        "outputId": "900fafd7-689f-47c9-8525-80a170a0e8ec"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[0., 0., 0., 0.],\n",
+              "       [0., 0., 0., 0.]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr4_1=np.zeros((3,5)) # barcha elemtlari 0 ga teng bo'lgan (3, 5) massiv\n",
+        "arr4_1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QzKYFsHysvAz",
+        "outputId": "a0034f6d-8c65-4b87-ef3d-163360ae3ace"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[0., 0., 0., 0., 0.],\n",
+              "       [0., 0., 0., 0., 0.],\n",
+              "       [0., 0., 0., 0., 0.]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr5=np.ones((2,4))  # barcha elementlari 1 ga teng bo'lgan (2, 4) massiv\n",
+        "arr5"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tk3W0Ogirz4G",
+        "outputId": "cc3c1d3a-4a8b-423a-fd5a-6d9e288097a4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[1., 1., 1., 1.],\n",
+              "       [1., 1., 1., 1.]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr5_1=np.ones((3,5))\n",
+        "arr5_1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WBRpuQrDtOWL",
+        "outputId": "ffac817a-1d53-4920-a5f9-35c827b7f013"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[1., 1., 1., 1., 1.],\n",
+              "       [1., 1., 1., 1., 1.],\n",
+              "       [1., 1., 1., 1., 1.]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr6=np.arange(4,20,2)  # 4 dan 20 gacha bo'lgan qiymatlarni 2 qadam bilan massivga joylab beradi\n",
+        "arr6"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gEum4WfVrzyw",
+        "outputId": "e2057115-8001-4041-e800-0e6efd40cf69"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([ 4,  6,  8, 10, 12, 14, 16, 18])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr7=np.arange(20) # 0 dan 20 gacha bo'lgan qiymatlarni 1 qadam bilan massivga joylab beradi\n",
+        "arr7"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6_1qVvJurzCO",
+        "outputId": "26b2064c-b257-45da-eb8a-2161da5cb8e3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,\n",
+              "       17, 18, 19])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# random funksiyasi yordamida yaratish (rand, randint, randn)"
+      ],
+      "metadata": {
+        "id": "T2FOT6A-u5fE"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "\n",
+        "arr8=np.random.rand(2,4)  # (2, 4) o'lchamli --> elementlar (0 ~ 1) taxminiy qiymatlardan tashkil topgan\n",
+        "arr8"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FL2j6oiEuZub",
+        "outputId": "356aad3e-128c-49c0-8555-8b06f511b8f8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[0.78862164, 0.41257754, 0.70527393, 0.49555898],\n",
+              "       [0.79703439, 0.55188484, 0.84734496, 0.58269188]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 25
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr9=np.random.randint(5, size=(2,4))  # (2, 4) o'lchamli va max qiymati 5 gacha bo'lgan int sonlar\n",
+        "arr9"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fH6zOkDmu-yY",
+        "outputId": "a6c2d451-ca21-4443-f6a4-7cdc584da150"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[3, 1, 4, 3],\n",
+              "       [3, 0, 2, 4]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr10=np.random.randn(2,4) # (2, 4) o'lchamli --> elementlari (Normal dist)\n",
+        "arr10"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "L5Pi0ip4vcIq",
+        "outputId": "823a6d5e-c544-4677-c2b6-c9f8e5777edc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[ 0.65886575,  0.11489263, -2.3520451 ,  0.62331073],\n",
+              "       [-1.3169879 ,  0.33485972, -0.79865471, -0.95460138]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 27
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Massivlar yaratishda ma'lumot turlarini aniq kiritish, ma'lumot turlarini aniqlash, bir turdagi ma'lumot turidan ikkinchi turdagi ma'lumot turiga o'girish"
+      ],
+      "metadata": {
+        "id": "cLfO2VwNbKni"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr1=np.array([1,2,3], dtype=np.float64)  # bu float64 ma'lumotlar turiga ega massiv\n",
+        "arr1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4DsPTzWDbkqb",
+        "outputId": "5293e804-72b9-43b4-92af-94fcf829dabb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([1., 2., 3.])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 28
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr1.dtype"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0bF1BD_dooMe",
+        "outputId": "e53a4ae7-affe-4113-9030-448afc613528"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "dtype('float64')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr2=np.array([1,2,3], dtype=np.int32)   # bu float32 ma'lumotlar turiga ega massiv\n",
+        "arr2"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4xv5xnHSo5hz",
+        "outputId": "18fe8b89-54c1-43fa-93a6-94fd384c8e66"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([1, 2, 3], dtype=int32)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 32
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr2.dtype"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "F8OcIYWppPEx",
+        "outputId": "001be181-0b7e-4df0-d27d-fce6c1716a79"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "dtype('int32')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 33
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr9=np.array([1,2,3,4])\n",
+        "arr9"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cofiFte-ptX2",
+        "outputId": "73352ae3-a37d-4589-f693-087b1ec242f0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([1, 2, 3, 4])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 34
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr9.dtype"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rM0wqvHpqZoM",
+        "outputId": "e4528e10-2c3c-418e-d35e-baa2a65b349e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "dtype('int64')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 35
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr10=arr9.astype(np.float64)\n",
+        "arr10"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WNPiqnlSqcDM",
+        "outputId": "953c8aed-90e0-4e66-e640-ad31c1829fd8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([1., 2., 3., 4.])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 36
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr10.dtype"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "D3QGrQP2qxba",
+        "outputId": "3f06b0ed-052f-4270-8e8b-46a64eb8e5f4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "dtype('float64')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 37
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "son=np.array([3.1,2.5,9.1,5.7])\n",
+        "son.dtype"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ypWkcqPnq1r0",
+        "outputId": "735517bd-312e-4820-fb27-943cdc515aaa"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "dtype('float64')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 38
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "int_son=son.astype(np.int64)\n",
+        "int_son.dtype"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9CUl_yoQrRZo",
+        "outputId": "1dc44e63-fe89-43ea-e8cf-da08e0dc7d39"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "dtype('int64')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 39
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "BMSIZbVCrjWv"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPsEwfg20c//NgjRTz9gJvD",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
