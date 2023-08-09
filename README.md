@@ -1,2 +1,2 @@
-# data_science
-data scienceda qilingan ishlarimni shu yerda jamlab borganman. 
+# data_analiz_darsliklar
+data analysis bo'yicha darsliklar. 
