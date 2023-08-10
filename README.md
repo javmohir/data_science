@@ -1,2 +1,2 @@
-# data_analiz_darsliklar
-data analysis bo'yicha darsliklar. 
+# data_analiz_nampy kutubxonasi
+data analysis nampy kutubxonasida darsliklar to'plami. 
